@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="./css/output.css">
+    <link rel="icon" href="./imgs/logo.svg">
+</head>
+
+<body class="w-screen min-h-screen bg-[#182546] p-4 md:p-12 relative overflow-x-hidden">
+    <!-- Score Header -->
+    <div
+        class="w-full max-w-[700px] h-[80px] md:h-[150px] rounded-[15px] border border-[#FFFFFF4A] mx-auto flex items-center justify-between px-4 md:px-8 py-3 md:py-7">
+        <img class="w-[83px] h-[48px] md:w-[150px] md:h-[96px]" src="./imgs/logo.svg" alt="Game Logo">
+        <span class="flex flex-col justify-center items-center bg-[#F3F3F3] px-4 md:px-12 py-1 md:py-3 rounded-[8px]">
+            <span class="text-[#2A45C2] text-[12px] md:text-[16px] font-semibold uppercase font-mono">score</span>
+            <span id="score" class="text-[28px] md:text-[50px] font-mono text-[#565468]">0</span>
+        </span>
+    </div>
+
+    <!-- Step 1: Game Selection (Mobile) -->
+    <section id="gameZone" class="mt-6 md:mt-[64px]">
+        <div class="w-full max-w-[476px] mx-auto bg-triangle bg-no-repeat bg-center bg-[length:200px] md:bg-auto">
+            <ul class="grid grid-cols-2 gap-x-8 md:gap-x-20 gap-y-4 px-4">
+                <li class="flex justify-center">
+                    <button
+                        class="btns w-[100px] h-[100px] md:w-[150px] md:h-[150px] rounded-full flex items-center justify-center ">
+                        <img src="./imgs/paper.svg" alt="paper" class="w-[190px] md:w-[200px]">
+                    </button>
+                </li>
+                <li class="flex justify-center">
+                    <button
+                        class="btns w-[100px] h-[100px] md:w-[150px] md:h-[150px] rounded-full flex items-center justify-center ">
+                        <img src="./imgs/rock.svg" alt="rock" class="w-[190px] md:w-[200px]">
+                    </button>
+                </li>
+                <li class="col-span-2 flex justify-center">
+                    <button
+                        class="btns w-[100px] h-[100px] md:w-[150px] md:h-[150px] rounded-full flex items-center justify-center ">
+                        <img src="./imgs/scissors.svg" alt="scissors" class="w-[190px] md:w-[200px]">
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Step 2 & 3: Results (Mobile) -->
+    <section id="secondGameZone" class="hidden">
+        <div
+            class="flex flex-col md:flex-row items-center justify-between w-full max-w-[900px] mx-auto px-4 gap-4 md:gap-0 mt-8">
+            <!-- User Choice -->
+            <div class="flex flex-col items-center justify-center order-1 md:order-1">
+                <p class="text-[16px] md:text-[24px] font-bold uppercase tracking-wide font-mono text-white mb-4">YOU
+                    PICKED</p>
+                <img id="user" class="w-[150px] h-[150px] md:w-[150px]" src="./imgs/paper.svg" alt="">
+            </div>
+
+            <!-- Result Text (Mobile - shown between choices) -->
+            <div class="order-3 md:order-2 w-full md:w-auto my-1 md:my-0 md:mx-8 text-center">
+                <p id="whoWinner"
+                    class="text-center text-[20px] md:text-[36px]  font-mono font-bold text-white mb-4">
+                    YOU
+                    WIN</p>
+                </p>
+                <button id="play-again"
+                    class="w-[180px] md:w-[180px] px-4 md:px-12 py-3 bg-white rounded-[8px] text-[#3B4262] font-bold text-[16px] hidden mx-auto">
+                    PLAY AGAIN
+                </button>
+            </div>
+
+            <!-- Robot Choice -->
+            <div class="flex flex-col items-center justify-center order-2 md:order-3">
+                <p class="text-[16px] md:text-[24px] font-bold uppercase tracking-wide font-mono text-white mb-4">THE
+                    HOUSE PICKED</p>
+                <img id="robot" class="w-[150px] h-[150px] md:w-[150px]" src="./imgs/oval.svg" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules Button -->
+    <button
+        class="fixed bottom-0 right-1/2 translate-x-1/2 md:right-8 md:bottom-8 md:translate-x-0 border border-white px-8 py-2 rounded-lg uppercase text-white text-sm tracking-widest"
+        onclick="my_modal_3.showModal()">
+        RULES
+    </button>
+
+    <!-- Rules Modal -->
+    <dialog id="my_modal_3" class="modal bg-white bg-opacity-10 backdrop-blur-sm">
+        <div class="modal-box bg-white max-w-[320px] md:max-w-md rounded-lg p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-[32px] font-bold text-[#3B4262]">RULES</h3>
+                <form method="dialog">
+                    <button class="text-[#3B4262] text-[20px] font-bold">✕</button>
+                </form>
+            </div>
+            <img class="w-full" src="./imgs/rule-basic.svg" alt="Game Rules">
+        </div>
+    </dialog>
+
+    <style>
+        .shadow-choice {
+            box-shadow: 0px 6px 0px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .shadow-choice-lg {
+            box-shadow: 0px 8px 0px 0px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</body>
+<script type="module" src="./js/main.js"></script>
+
+</html>
