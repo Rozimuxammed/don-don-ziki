@@ -1,4 +1,4 @@
-import { playAgain, robot, score, user, whoWinner } from "./getHtmlElements.js";
+import { modeInner, playAgain, robot, score, user, whoWinner } from "./getHtmlElements.js";
 import { robotChoose } from "./robotChoose.js";
 import { winner } from "./winner.js";
 
@@ -6,7 +6,7 @@ export function changer(variant) {
     user.src = `./imgs/${variant}.svg`;
     
     setTimeout(() => {
-        const AI = robotChoose();
+        const AI = robotChoose(modeInner.dataset.mode);
         robot.src = `./imgs/${AI}.svg`;
         const winnerText = winner(variant, AI);
         whoWinner.innerText = winnerText;
